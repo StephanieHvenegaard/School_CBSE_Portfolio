@@ -6,6 +6,7 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
+import dk.sdu.mmmi.cbse.common.services.ProjectileSPI;
 import java.util.Random;
 
 /**
@@ -14,25 +15,27 @@ import java.util.Random;
  */
 public class EnemyControlSystem implements IEntityProcessingService {
 
+    private ProjectileSPI ProjectileService;
+
     Random r = new Random(System.currentTimeMillis()); // dot wanna create this for every proces call
-        boolean UP = false;
-        boolean LEFT = false;
-        boolean RIGHT = false;
 
     @Override
     public void process(GameData gameData, World world) {
 
-         UP = ((r.nextInt()*100)<75);
-         LEFT = ((r.nextInt()*100)<75);
-         RIGHT = ((r.nextInt()*100)<75);
+
 
         for (Entity enemy : world.getEntities(Enemy.class)) {
             PositionPart positionPart = enemy.getPart(PositionPart.class);
             MovingPart movingPart = enemy.getPart(MovingPart.class);
-
-            movingPart.setLeft(LEFT);
-            movingPart.setRight(RIGHT);
-            movingPart.setUp(UP);
+            double random = r.nextDouble();
+            movingPart.setLeft(random < 0.2);
+            movingPart.setRight(random > 0.3 && random < 0.5);
+            movingPart.setUp(random > 0.7 && random < 0.9);
+            
+            if (random > 0.98) {
+                Entity bullet = ProjectileService.createBullet(enemy, gameData);
+                world.addEntity(bullet);
+            }
 
             movingPart.process(gameData, enemy);
             positionPart.process(gameData, enemy);
@@ -63,5 +66,14 @@ public class EnemyControlSystem implements IEntityProcessingService {
 
         entity.setShapeX(shapex);
         entity.setShapeY(shapey);
+    }
+    //TODO: Dependency injection via Declarative Services
+
+    public void setBulletService(ProjectileSPI service) {
+        this.ProjectileService = service;
+    }
+
+    public void removeBulletService() {
+        this.ProjectileService = null;
     }
 }

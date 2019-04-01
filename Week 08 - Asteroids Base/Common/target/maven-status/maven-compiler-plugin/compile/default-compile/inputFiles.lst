@@ -1,0 +1,15 @@
+D:\_SDU\Git\4. Portfølge assignment\Week 08 - Asteroids Base\Common\src\main\java\dk\sdu\mmmi\cbse\common\data\entityparts\ColorPart.java
+D:\_SDU\Git\4. Portfølge assignment\Week 08 - Asteroids Base\Common\src\main\java\dk\sdu\mmmi\cbse\common\data\entityparts\PositionPart.java
+D:\_SDU\Git\4. Portfølge assignment\Week 08 - Asteroids Base\Common\src\main\java\dk\sdu\mmmi\cbse\common\events\Event.java
+D:\_SDU\Git\4. Portfølge assignment\Week 08 - Asteroids Base\Common\src\main\java\dk\sdu\mmmi\cbse\common\services\IEntityProcessingService.java
+D:\_SDU\Git\4. Portfølge assignment\Week 08 - Asteroids Base\Common\src\main\java\dk\sdu\mmmi\cbse\common\data\GameKeys.java
+D:\_SDU\Git\4. Portfølge assignment\Week 08 - Asteroids Base\Common\src\main\java\dk\sdu\mmmi\cbse\common\data\Entity.java
+D:\_SDU\Git\4. Portfølge assignment\Week 08 - Asteroids Base\Common\src\main\java\dk\sdu\mmmi\cbse\common\data\entityparts\MovingPart.java
+D:\_SDU\Git\4. Portfølge assignment\Week 08 - Asteroids Base\Common\src\main\java\dk\sdu\mmmi\cbse\common\data\World.java
+D:\_SDU\Git\4. Portfølge assignment\Week 08 - Asteroids Base\Common\src\main\java\dk\sdu\mmmi\cbse\common\services\IGamePluginService.java
+D:\_SDU\Git\4. Portfølge assignment\Week 08 - Asteroids Base\Common\src\main\java\dk\sdu\mmmi\cbse\common\data\entityparts\LifePart.java
+D:\_SDU\Git\4. Portfølge assignment\Week 08 - Asteroids Base\Common\src\main\java\dk\sdu\mmmi\cbse\common\data\entityparts\TimerPart.java
+D:\_SDU\Git\4. Portfølge assignment\Week 08 - Asteroids Base\Common\src\main\java\dk\sdu\mmmi\cbse\common\data\GameData.java
+D:\_SDU\Git\4. Portfølge assignment\Week 08 - Asteroids Base\Common\src\main\java\dk\sdu\mmmi\cbse\common\services\IPostEntityProcessingService.java
+D:\_SDU\Git\4. Portfølge assignment\Week 08 - Asteroids Base\Common\src\main\java\dk\sdu\mmmi\cbse\common\services\ProjectileSPI.java
+D:\_SDU\Git\4. Portfølge assignment\Week 08 - Asteroids Base\Common\src\main\java\dk\sdu\mmmi\cbse\common\data\entityparts\EntityPart.java

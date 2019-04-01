@@ -7,10 +7,10 @@ import static dk.sdu.mmmi.cbse.common.data.GameKeys.RIGHT;
 import static dk.sdu.mmmi.cbse.common.data.GameKeys.SPACE;
 import static dk.sdu.mmmi.cbse.common.data.GameKeys.UP;
 import dk.sdu.mmmi.cbse.common.data.World;
-import dk.sdu.mmmi.cbse.common.data.entityparts.GunPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
+import dk.sdu.mmmi.cbse.common.services.ProjectileSPI;
 
 /**
  *
@@ -18,20 +18,24 @@ import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
  */
 public class PlayerControlSystem implements IEntityProcessingService {
 
+    private ProjectileSPI ProjectileService;
+
     @Override
     public void process(GameData gameData, World world) {
 
         for (Entity player : world.getEntities(Player.class)) {
             PositionPart positionPart = player.getPart(PositionPart.class);
             MovingPart movingPart = player.getPart(MovingPart.class);
-            GunPart punPart = player.getPart(GunPart.class);
             
             movingPart.setLeft(gameData.getKeys().isDown(LEFT));
             movingPart.setRight(gameData.getKeys().isDown(RIGHT));
-            movingPart.setUp(gameData.getKeys().isDown(UP));            
-            
-            punPart.setShooting(gameData.getKeys().isDown(SPACE));            
-            
+            movingPart.setUp(gameData.getKeys().isDown(UP));
+
+            if (gameData.getKeys().isDown(SPACE)) {
+                Entity bullet = ProjectileService.createBullet(player, gameData);
+                world.addEntity(bullet);
+            };
+
             movingPart.process(gameData, player);
             positionPart.process(gameData, player);
 
@@ -61,5 +65,14 @@ public class PlayerControlSystem implements IEntityProcessingService {
 
         entity.setShapeX(shapex);
         entity.setShapeY(shapey);
+    }
+    //TODO: Dependency injection via Declarative Services
+
+    public void setBulletService(ProjectileSPI service) {
+        this.ProjectileService = service;
+    }
+
+    public void removeBulletService() {
+        this.ProjectileService = null;
     }
 }

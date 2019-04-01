@@ -46,6 +46,9 @@ public class AstroidPlugin implements IGamePluginService {
         a.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
         a.add(new PositionPart(x, y, radians));
         a.add(new ColorPart(0,0,1));
+
+        a.setShapeX(new float[5]);
+        a.setShapeY(new float[5]);
         
         return a;
     }

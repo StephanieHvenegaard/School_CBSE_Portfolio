@@ -47,8 +47,8 @@ public class AstroidControlSystem implements IEntityProcessingService {
     }
  
     private void updateShape(Entity entity) {
-        float[] shapex = new float[5];
-        float[] shapey = new float[5];
+        float[] shapex = entity.getShapeX();
+        float[] shapey = entity.getShapeY();
         PositionPart positionPart = entity.getPart(PositionPart.class);
         float x = positionPart.getX();
         float y = positionPart.getY();

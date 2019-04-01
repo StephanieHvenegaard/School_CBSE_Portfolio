@@ -20,6 +20,7 @@ import dk.sdu.mmmi.cbse.playersystem.PlayerPlugin;
 import dk.sdu.mmmi.cbse.playersystem.PlayerControlSystem;
 import dk.sdu.mmmi.cbse.projectile.ProjectileControlSystem;
 import dk.sdu.mmmi.cbse.projectile.ProjectilePlugin;
+import dk.sdu.mmmi.cbse.projectile.SPI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,10 +56,13 @@ public class Game
         IGamePluginService astroidPlugin = new AstroidPlugin();
         IGamePluginService projectilePlugin = new ProjectilePlugin();
         
-        IEntityProcessingService playerProcess = new PlayerControlSystem();
-        IEntityProcessingService enemyProcess = new EnemyControlSystem();
+        PlayerControlSystem playerProcess = new PlayerControlSystem();
+                playerProcess.setBulletService(new SPI());        
+        EnemyControlSystem enemyProcess = new EnemyControlSystem();
+                enemyProcess.setBulletService(new SPI());
         IEntityProcessingService astroidProcess = new AstroidControlSystem();
-         IEntityProcessingService projectileProcess = new ProjectileControlSystem();
+        IEntityProcessingService projectileProcess = new ProjectileControlSystem();
+        
         
         entityPlugins.add(playerPlugin);
         entityPlugins.add(enemyPlugin);
