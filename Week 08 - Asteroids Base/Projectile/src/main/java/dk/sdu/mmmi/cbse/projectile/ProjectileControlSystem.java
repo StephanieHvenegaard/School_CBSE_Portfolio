@@ -19,13 +19,14 @@ import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
  * @author Stephanie
  */
 public class ProjectileControlSystem implements IEntityProcessingService {
+   
+    
 
+    
     @Override
     public void process(GameData gameData, World world) {
         // Create Projectiles
-        if (gameData.getKeys().isPressed(SPACE)) {
-            System.out.println("pew");
-        }
+        
         // Update Current projectiles
         for (Entity projectile : world.getEntities(Projectile.class)) {
             PositionPart positionPart = projectile.getPart(PositionPart.class);
@@ -65,8 +66,8 @@ public class ProjectileControlSystem implements IEntityProcessingService {
         entity.setShapeY(shapey);
     }
 
-    private Entity createProjectile(GameData gameData) {
-
+    private Entity createProjectile(World world) {
+        
         float deacceleration = 10;
         float acceleration = 200;
         float maxSpeed = 300;
