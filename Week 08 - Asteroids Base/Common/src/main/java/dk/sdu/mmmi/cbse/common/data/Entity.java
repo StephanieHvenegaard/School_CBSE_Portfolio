@@ -64,7 +64,5 @@ public class Entity implements Serializable {
 
     public void setSize(float size) {
         this.size = size;
-    }
-    
-    
+    }    
 }

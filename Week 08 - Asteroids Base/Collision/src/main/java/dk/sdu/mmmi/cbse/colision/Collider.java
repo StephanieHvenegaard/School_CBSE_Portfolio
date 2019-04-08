@@ -27,12 +27,17 @@ public class Collider implements IPostEntityProcessingService {
                 LifePart entityLife = entity.getPart(LifePart.class);
                 LifePart collisionLife = collisionDetection.getPart(LifePart.class);
 
+                // checks if components have life parts.
+                if(entityLife == null || collisionLife == null)
+                    continue;
+                
+                
+                
                 // if the two entities are identical, skip the iteration
                 if (entity.getID().equals(collisionDetection.getID())) {
                     continue;
-
-                    // remove entities with zero in expiration
                 }
+                // remove entities with zero in expiration
                 if (entityLife.getExpiration() <= 0) {
                     world.removeEntity(entity);
                     // if collisioner expiration is zero or beloq, remove.

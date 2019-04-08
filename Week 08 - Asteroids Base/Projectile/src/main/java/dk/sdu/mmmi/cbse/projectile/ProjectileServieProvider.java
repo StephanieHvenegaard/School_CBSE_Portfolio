@@ -8,6 +8,7 @@ package dk.sdu.mmmi.cbse.projectile;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.entityparts.ColorPart;
+import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.TimerPart;
@@ -39,6 +40,8 @@ public class ProjectileServieProvider implements ProjectileSPI {
         projectile.add(new PositionPart(bx + x, by + y, radians));
         projectile.add(new MovingPart(0, 5000000, speed, 5));
         projectile.add(new TimerPart(1.5f));
+        projectile.add(new LifePart(1,3f));
+        
         if (color != null) {
             projectile.add(color);
         } else {
