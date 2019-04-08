@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.Array;
 import dk.sdu.mmmi.cbse.astroid.AstroidControlSystem;
 import dk.sdu.mmmi.cbse.astroid.AstroidPlugin;
+import dk.sdu.mmmi.cbse.colision.Collider;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
@@ -54,7 +55,10 @@ public class Game
         Gdx.input.setInputProcessor(
                 new GameInputProcessor(gameData)
         );
-
+        IPostEntityProcessingService collistion = new Collider();
+        postProssors.add(collistion);
+        
+        
         IGamePluginService playerPlugin = new PlayerPlugin();
         IGamePluginService enemyPlugin = new EnemyPlugin();
         IGamePluginService astroidPlugin = new AstroidPlugin();
@@ -103,6 +107,10 @@ public class Game
     private void update() {
         // Update
         for (IEntityProcessingService entityProcessorService : entityProcessors) {
+            entityProcessorService.process(gameData, world);
+        }
+        // post updater
+        for (IPostEntityProcessingService entityProcessorService : postProssors) {
             entityProcessorService.process(gameData, world);
         }
     }
