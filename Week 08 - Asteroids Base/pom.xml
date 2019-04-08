@@ -12,6 +12,7 @@
         <module>Ememy</module>
         <module>Projectile</module>
         <module>Asteroid</module>
+        <module>Collision</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

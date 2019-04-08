@@ -19,7 +19,7 @@ import static java.lang.Math.sin;
  *
  * @author Stephanie
  */
-public class SPI implements ProjectileSPI {
+public class ProjectileServieProvider implements ProjectileSPI {
 
     @Override
     public Entity createBullet(Entity shooter, GameData gameData) {

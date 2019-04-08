@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.utils.Array;
 import dk.sdu.mmmi.cbse.astroid.AstroidControlSystem;
 import dk.sdu.mmmi.cbse.astroid.AstroidPlugin;
 import dk.sdu.mmmi.cbse.common.data.Entity;
@@ -13,6 +14,7 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.ColorPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
+import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 import dk.sdu.mmmi.cbse.enemysystem.EnemyControlSystem;
 import dk.sdu.mmmi.cbse.enemysystem.EnemyPlugin;
 import dk.sdu.mmmi.cbse.managers.GameInputProcessor;
@@ -20,7 +22,7 @@ import dk.sdu.mmmi.cbse.playersystem.PlayerPlugin;
 import dk.sdu.mmmi.cbse.playersystem.PlayerControlSystem;
 import dk.sdu.mmmi.cbse.projectile.ProjectileControlSystem;
 import dk.sdu.mmmi.cbse.projectile.ProjectilePlugin;
-import dk.sdu.mmmi.cbse.projectile.SPI;
+import dk.sdu.mmmi.cbse.projectile.ProjectileServieProvider;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +35,8 @@ public class Game
     private final GameData gameData = new GameData();
     private List<IEntityProcessingService> entityProcessors = new ArrayList<>();
     private List<IGamePluginService> entityPlugins = new ArrayList<>();
+    private List<IPostEntityProcessingService> postProssors = new ArrayList<>();
+    
     private World world = new World();
 
     @Override
@@ -57,9 +61,9 @@ public class Game
         IGamePluginService projectilePlugin = new ProjectilePlugin();
         
         PlayerControlSystem playerProcess = new PlayerControlSystem();
-                playerProcess.setBulletService(new SPI());        
+                playerProcess.setBulletService(new ProjectileServieProvider());        
         EnemyControlSystem enemyProcess = new EnemyControlSystem();
-                enemyProcess.setBulletService(new SPI());
+                enemyProcess.setBulletService(new ProjectileServieProvider());
         IEntityProcessingService astroidProcess = new AstroidControlSystem();
         IEntityProcessingService projectileProcess = new ProjectileControlSystem();
         
