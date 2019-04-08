@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.Array;
 import dk.sdu.mmmi.cbse.astroid.AstroidControlSystem;
 import dk.sdu.mmmi.cbse.astroid.AstroidPlugin;
+import dk.sdu.mmmi.cbse.astroid.Splitter;
 import dk.sdu.mmmi.cbse.colision.Collider;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
@@ -57,6 +58,8 @@ public class Game
         );
         IPostEntityProcessingService collistion = new Collider();
         postProssors.add(collistion);
+        IEntityProcessingService splitter = new Splitter();
+        entityProcessors.add(splitter);
         
         
         IGamePluginService playerPlugin = new PlayerPlugin();

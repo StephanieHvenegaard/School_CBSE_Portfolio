@@ -14,6 +14,7 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.SplitterPart;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
+
 /**
  *
  * @author Stephanie
@@ -22,19 +23,17 @@ public class AstroidPlugin implements IGamePluginService {
 
     private Entity astroid;
 
-
     @Override
     public void start(GameData gameData, World world) {
-        
+
         // Add entities to the world
         astroid = createLargeAsteroid(gameData);
         world.addEntity(astroid);
     }
 
-
-    private Asteroid createLargeAsteroid(GameData gameData){
-       float speed = (float) Math.random() * 10f + 40f;
-       float radians = 3.1415f / 2 + (float) Math.random();
+    private Asteroid createLargeAsteroid(GameData gameData) {
+        float speed = (float) Math.random() * 10f + 40f;
+        float radians = 3.1415f / 2 + (float) Math.random();
         float x = gameData.getDisplayWidth() / 2 + 100;
         float y = gameData.getDisplayHeight() / 2 + 50;
         Entity asteroid = new Asteroid(LARGE);
@@ -47,7 +46,7 @@ public class AstroidPlugin implements IGamePluginService {
         asteroid.add(new SplitterPart());
         asteroid.setRadius(15);
 
-        return (Asteroid) asteroid;  
+        return (Asteroid) asteroid;
     }
 
     @Override

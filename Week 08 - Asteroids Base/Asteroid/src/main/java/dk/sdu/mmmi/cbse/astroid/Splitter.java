@@ -33,7 +33,7 @@ public class Splitter implements IEntityProcessingService {
             PositionPart posPart = asteroid.getPart(PositionPart.class);
             SplitterPart splitter = asteroid.getPart(SplitterPart.class);
 
-            if (theAsteroid.getSize() == AsteroidType.LARGE.getSize() && splitter.ShouldSplit()) {
+            if (theAsteroid.getType() == AsteroidType.LARGE && splitter.ShouldSplit()) {
                 splitter.setShouldSplit(false);
                 Asteroid mediumAsteroidOne = createMediumAsteroid(posPart.getX(), posPart.getY());
                 Asteroid mediumAsteroidTwo = createMediumAsteroid(posPart.getX(), posPart.getY());

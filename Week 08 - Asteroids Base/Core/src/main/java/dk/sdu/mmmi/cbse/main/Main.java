@@ -10,10 +10,11 @@ public class Main {
 		LwjglApplicationConfiguration cfg =
 			new LwjglApplicationConfiguration();
 		cfg.title = "Asteroids";
-		cfg.width = 500;
-		cfg.height = 400;
+		cfg.width = 500*2;
+		cfg.height = 400*2;
 		cfg.useGL30 = false;
-		cfg.resizable = false;
+		cfg.resizable = true;
+                cfg.fullscreen = false;
 		
 		new LwjglApplication(new Game(), cfg);
 		

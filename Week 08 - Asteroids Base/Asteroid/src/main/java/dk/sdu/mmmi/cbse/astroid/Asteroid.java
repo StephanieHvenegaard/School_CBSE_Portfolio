@@ -22,19 +22,23 @@ public class Asteroid extends Entity {
 
     private AsteroidType type;
 
-    public static ColorPart getAstroidColor()
-    {
+    public static ColorPart getAstroidColor() {
         // got tired of changing it in five documents
         return new ColorPart(0, 0, 1);
     }
-    
+
     public Asteroid(AsteroidType type) {
         this.type = type;
+        this.setSize(type.getSize());
     }
 
     @Override
     public float getSize() {
         return type.getSize();
+    }
+
+    public AsteroidType getType() {
+        return type;
     }
 }
 

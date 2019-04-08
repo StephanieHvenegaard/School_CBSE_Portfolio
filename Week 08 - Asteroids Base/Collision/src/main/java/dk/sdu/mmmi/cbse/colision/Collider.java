@@ -48,8 +48,9 @@ public class Collider implements IPostEntityProcessingService {
                 // CollisionDetection
                 if (this.Collides(entity, collisionDetection)) {
                     // if entity has been hit, and should have its life reduced
-                    if (entityLife.getLife() > 0) {
-                        entityLife.setLife(entityLife.getLife() - 1);
+                    int life = entityLife.getLife() ;
+                    if (life> 0) {
+                        entityLife.setLife(life  - 1);
                         // if entity is out of life - remove
                         if (entityLife.getLife() <= 0) {
                             SplitterPart split = entity.getPart(SplitterPart.class);
