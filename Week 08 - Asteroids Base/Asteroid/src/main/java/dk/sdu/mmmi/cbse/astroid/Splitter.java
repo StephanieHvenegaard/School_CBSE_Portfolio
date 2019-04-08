@@ -39,14 +39,16 @@ public class Splitter implements IEntityProcessingService {
                 Asteroid mediumAsteroidTwo = createMediumAsteroid(posPart.getX(), posPart.getY());
                 world.addEntity(mediumAsteroidOne);
                 world.addEntity(mediumAsteroidTwo);
+                world.removeEntity(theAsteroid);
             }
 
-            if (theAsteroid.getSize() == AsteroidType.LARGE.getSize() && splitter.ShouldSplit()) {
+            if (theAsteroid.getSize() == AsteroidType.MEDIUM.getSize() && splitter.ShouldSplit()) {
                 splitter.setShouldSplit(false);
                 Asteroid smallAsteroidOne = createSmallAsteroid(posPart.getX(), posPart.getY());
                 Asteroid smallAsteroidTwo = createSmallAsteroid(posPart.getX(), posPart.getY());
                 world.addEntity(smallAsteroidOne);
                 world.addEntity(smallAsteroidTwo);
+                world.removeEntity(theAsteroid);
             }
         }
     }
@@ -59,8 +61,7 @@ public class Splitter implements IEntityProcessingService {
         asteroid.add(Asteroid.getAstroidColor());
         asteroid.add(new MovingPart(0, speed, speed, 0));
         asteroid.add(new PositionPart(x + rnd.nextInt(50), y + rnd.nextInt(50), radians));
-        asteroid.add(new LifePart(2, 69));
-        asteroid.add(new SplitterPart());
+        asteroid.add(new LifePart(2, 69));        
         asteroid.setRadius(5);
 
         return (Asteroid) asteroid;

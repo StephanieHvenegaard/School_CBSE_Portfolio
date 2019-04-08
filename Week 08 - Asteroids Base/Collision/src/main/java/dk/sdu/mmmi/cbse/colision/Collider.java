@@ -10,6 +10,7 @@ import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
+import dk.sdu.mmmi.cbse.common.data.entityparts.SplitterPart;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 
 /**
@@ -27,12 +28,10 @@ public class Collider implements IPostEntityProcessingService {
                 LifePart entityLife = entity.getPart(LifePart.class);
                 LifePart collisionLife = collisionDetection.getPart(LifePart.class);
 
-                // checks if components have life parts.
-                if(entityLife == null || collisionLife == null)
+                // if one or both components dont have a life component skip it. 
+                if (entityLife == null || collisionLife == null) {
                     continue;
-                
-                
-                
+                }
                 // if the two entities are identical, skip the iteration
                 if (entity.getID().equals(collisionDetection.getID())) {
                     continue;
@@ -53,7 +52,12 @@ public class Collider implements IPostEntityProcessingService {
                         entityLife.setLife(entityLife.getLife() - 1);
                         // if entity is out of life - remove
                         if (entityLife.getLife() <= 0) {
-                            world.removeEntity(entity);
+                            SplitterPart split = entity.getPart(SplitterPart.class);
+                            if (split == null) {
+                                world.removeEntity(entity);
+                            }
+                            else 
+                                split.setShouldSplit(true);
                         }
                     }
                 }
