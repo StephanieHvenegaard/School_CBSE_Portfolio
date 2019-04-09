@@ -3,16 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.sdu.mmmi.cbse.astroid;
+package dk.sdu.mmmi.cbse.commonentities;
 
 import dk.sdu.mmmi.cbse.common.data.Entity;
-import dk.sdu.mmmi.cbse.common.data.GameData;
-import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.ColorPart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
-import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
-import java.util.Random;
 
 /**
  *
@@ -42,21 +36,7 @@ public class Asteroid extends Entity {
     }
 }
 
-enum AsteroidType {
-    LARGE(20f),
-    MEDIUM(10f),
-    SMALL(5f);
 
-    private float size;
-
-    private AsteroidType(float size) {
-        this.size = size;
-    }
-
-    public float getSize() {
-        return size;
-    }
-}
 //        extends Entity
 //        implements IEntityProcessingService {
 //

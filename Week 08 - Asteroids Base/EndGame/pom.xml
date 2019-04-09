@@ -6,7 +6,7 @@
         <artifactId>AsteroidsEntityFramework</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>Asteroid</artifactId>
+    <artifactId>EndGame</artifactId>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
@@ -20,5 +20,4 @@
             <version>${project.version}</version>
         </dependency>
     </dependencies>
-    <name>Asteroid</name>
 </project>

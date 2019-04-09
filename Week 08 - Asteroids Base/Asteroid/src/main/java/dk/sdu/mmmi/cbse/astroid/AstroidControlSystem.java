@@ -11,6 +11,8 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
+import dk.sdu.mmmi.cbse.commonentities.Asteroid;
+import dk.sdu.mmmi.cbse.commonentities.AsteroidType;
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 import java.util.Random;

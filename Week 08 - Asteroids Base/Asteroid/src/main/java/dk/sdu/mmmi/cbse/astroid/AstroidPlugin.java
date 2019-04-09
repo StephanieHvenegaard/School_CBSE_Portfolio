@@ -5,7 +5,7 @@
  */
 package dk.sdu.mmmi.cbse.astroid;
 
-import static dk.sdu.mmmi.cbse.astroid.AsteroidType.LARGE;
+
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
@@ -14,6 +14,8 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.SplitterPart;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
+import dk.sdu.mmmi.cbse.commonentities.Asteroid;
+import static dk.sdu.mmmi.cbse.commonentities.AsteroidType.LARGE;
 
 /**
  *

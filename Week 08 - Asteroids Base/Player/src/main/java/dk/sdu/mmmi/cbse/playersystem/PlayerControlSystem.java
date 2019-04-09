@@ -11,6 +11,7 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.ProjectileSPI;
+import dk.sdu.mmmi.cbse.commonentities.Player;
 
 /**
  *

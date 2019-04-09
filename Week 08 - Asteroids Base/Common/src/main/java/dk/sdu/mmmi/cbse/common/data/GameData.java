@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class GameData {
-
+    private boolean playerWon = false;
+    private boolean GameOwer = false;
     private float delta;
     private int displayWidth;
     private int displayHeight;
@@ -51,6 +52,22 @@ public class GameData {
 
     public int getDisplayHeight() {
         return displayHeight;
+    }
+
+    public boolean isPlayerWon() {
+        return playerWon;
+    }
+
+    public void setPlayerWon(boolean playerWon) {
+        this.playerWon = playerWon;
+    }
+
+    public boolean isGameOwer() {
+        return GameOwer;
+    }
+
+    public void setGameOwer(boolean GameOwer) {
+        this.GameOwer = GameOwer;
     }
 
     public <E extends Event> List<Event> getEvents(Class<E> type, String sourceID) {

@@ -5,17 +5,18 @@
  */
 package dk.sdu.mmmi.cbse.astroid;
 
-import static dk.sdu.mmmi.cbse.astroid.AsteroidType.MEDIUM;
-import static dk.sdu.mmmi.cbse.astroid.AsteroidType.SMALL;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
-import dk.sdu.mmmi.cbse.common.data.entityparts.ColorPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.SplitterPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
+import dk.sdu.mmmi.cbse.commonentities.Asteroid;
+import dk.sdu.mmmi.cbse.commonentities.AsteroidType;
+import static dk.sdu.mmmi.cbse.commonentities.AsteroidType.MEDIUM;
+import static dk.sdu.mmmi.cbse.commonentities.AsteroidType.SMALL;
 import java.util.Random;
 
 /**
