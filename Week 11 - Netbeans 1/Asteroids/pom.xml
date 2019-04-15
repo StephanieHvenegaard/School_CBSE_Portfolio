@@ -59,6 +59,8 @@
     <modules>
         <module>branding</module>
         <module>application</module>
+        <module>asteroid-core</module>
+        <module>asteroid-common</module>
     </modules>
 
     <properties>
