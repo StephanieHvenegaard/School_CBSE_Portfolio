@@ -1,0 +1,9 @@
+First the creation of the project.
+
+mvn org.ops4j:maven-pax-plugin:create-project -DgroupId=dk.se -DartifactId=osgi-project -Dversion=1.0-SNAPSHOT
+
+mvn pax:create-bundle -Dpackage=dk.se.core -Dname=core-bundle -Dversion=1.0-SNAPSHOT
+
+this creates the whitebox api using the bundle context api, this is defined because of the use of a activator
+
+mvn pax:create-bundle -Dpackage=dk.se.libGDXwrapper -Dname=libgdx-wrapper-bundle -Dversion=1.0-SNAPSHOT
